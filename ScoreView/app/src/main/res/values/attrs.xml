@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ScoreView">
+        <attr name="aim" format="integer" />
+        <attr name="mRadius" format="dimension|reference" />
+        <attr name="bordeColor" format="color|reference" />
+        <attr name="bordeWidth" format="dimension|reference"/>
+        <attr name="arcPadding" format="dimension|reference"/>
+        <attr name="arcColor" format="color|reference"/>
+        <attr name="scoreColor" format="color|reference"/>
+        <attr name="scoreSize" format="dimension|reference"/>
+        <attr name="scoreTextSize" format="dimension|reference"/>
+        <attr name="textPadding" format="dimension|reference"/>
+        <attr name="arcWidth" format="dimension|reference"/>
+    </declare-styleable>
+
+
+
+</resources>
