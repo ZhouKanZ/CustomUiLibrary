@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -14,19 +15,20 @@ import android.view.View;
  * @Descriptiong : xxx
  */
 
-public class DrawRectView extends View{
+public class DrawArcView extends View{
 
     Paint paint = new Paint();
+    RectF rectF = new RectF();
 
-    public DrawRectView(Context context) {
+    public DrawArcView(Context context) {
         this(context,null);
     }
 
-    public DrawRectView(Context context, @Nullable AttributeSet attrs) {
+    public DrawArcView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs,0);
     }
 
-    public DrawRectView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public DrawArcView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initPaint();
     }
@@ -35,14 +37,27 @@ public class DrawRectView extends View{
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(2);
+        paint.setAntiAlias(true);
 
+        rectF.left = 200;
+        rectF.top  = 200;
+        rectF.bottom = 400;
+        rectF.right  = 800;
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawRect(200,200,400,400,paint);
+//        canvas.drawCircle(200,200,80,paint);
+//
+//        paint.setStyle(Paint.Style.FILL);
+//        canvas.drawCircle(400,200,80,paint);
+
+        canvas.drawArc(rectF,90,90,false,paint);
+
+        canvas.drawArc(rectF,180,90,true,paint);
+
         paint.setStyle(Paint.Style.FILL);
-        canvas.drawRect(400,200,600,400,paint);
+        canvas.drawArc(rectF,270,90,true,paint);
     }
 }
